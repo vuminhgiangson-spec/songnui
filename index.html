@@ -3,168 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Tên Của Bạn</title>
-    <!-- Tailwind CSS qua CDN -->
+    <title>Việt Nam - Sông Núi Hữu Tình</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+        body { font-family: 'Quicksand', sans-serif; }
+        .page-section { display: none; }
+        .page-section.active { display: block; }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-200 antialiased">
+<body class="bg-slate-50 text-slate-800">
 
-    <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-white/10">
-        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
-                MY.FOLIO
-            </a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#home" class="hover:text-indigo-400 transition">Trang chủ</a>
-                <a href="#about" class="hover:text-indigo-400 transition">Giới thiệu</a>
-                <a href="#skills" class="hover:text-indigo-400 transition">Kỹ năng</a>
-                <a href="#projects" class="hover:text-indigo-400 transition">Dự án</a>
-                <a href="#contact" class="hover:text-indigo-400 transition">Liên hệ</a>
+    <!-- NAVIGATION BAR -->
+    <nav class="fixed top-0 w-full z-50 bg-white shadow-md border-b border-emerald-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-xl font-bold text-emerald-600 tracking-wider">VIETNAM TRAVEL</div>
+                <div class="hidden md:flex space-x-1 text-sm font-semibold">
+                    <button onclick="showPage('intro')" class="nav-link px-3 py-2 rounded-md hover:bg-emerald-50 text-emerald-700">Giới Thiệu</button>
+                    <button onclick="showPage('trangan')" class="nav-link px-3 py-2 rounded-md hover:bg-emerald-50">Tràng An</button>
+                    <button onclick="showPage('sapa')" class="nav-link px-3 py-2 rounded-md hover:bg-emerald-50">Sa Pa</button>
+                    <button onclick="showPage('phongnha')" class="nav-link px-3 py-2 rounded-md hover:bg-emerald-50">Phong Nha</button>
+                    <button onclick="showPage('hue')" class="nav-link px-3 py-2 rounded-md hover:bg-emerald-50">Huế</button>
+                    <button onclick="showPage('hagiang')" class="nav-link px-3 py-2 rounded-md hover:bg-emerald-50">Hà Giang</button>
+                </div>
             </div>
-            <a href="#contact" class="px-5 py-2 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white text-sm transition">
-                Liên hệ ngay
-            </a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-20">
-        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <h2 class="text-indigo-400 font-semibold mb-4">Chào bạn, mình là</h2>
-                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                    Nguyễn <span class="text-indigo-500">Văn A</span>
-                </h1>
-                <p class="text-slate-400 text-lg mb-8 max-w-lg">
-                    Một Web Developer đam mê tạo ra các trải nghiệm kỹ thuật số mượt mà, hiện đại và thân thiện với người dùng.
-                </p>
-                <div class="flex space-x-4">
-                    <a href="#projects" class="px-8 py-3 bg-indigo-600 rounded-lg font-semibold hover:translate-y-[-2px] transition duration-300">Xem dự án</a>
-                    <a href="#" class="px-8 py-3 border border-white/20 rounded-lg font-semibold hover:bg-white/5 transition duration-300">Tải CV</a>
-                </div>
-            </div>
-            <div class="relative">
-                <div class="absolute -inset-4 bg-indigo-500/20 blur-3xl rounded-full"></div>
-                <img src="https://via.placeholder.com/500" alt="Avatar" class="relative rounded-2xl border border-white/10 shadow-2xl grayscale hover:grayscale-0 transition duration-500">
-            </div>
-        </div>
-    </section>
+    <main class="mt-20 max-w-6xl mx-auto px-4 py-8">
 
-    <!-- About Section -->
-    <section id="about" class="py-24 bg-slate-800/50">
-        <div class="max-w-6xl mx-auto px-4">
-            <h3 class="text-3xl font-bold text-center mb-16">Về <span class="text-indigo-400">Bản Thân</span></h3>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-2xl border border-white/5 bg-slate-800 hover:border-indigo-500/50 transition">
-                    <div class="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        <!-- TRANG 1: GIỚI THIỆU CÁ NHÂN -->
+        <section id="intro" class="page-section active animate-fadeIn">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-emerald-50">
+                <div class="md:flex">
+                    <div class="md:w-1/3 bg-emerald-600 p-12 text-white flex flex-col justify-center items-center text-center">
+                        <div class="w-32 h-32 bg-white rounded-full mb-6 border-4 border-emerald-400 flex items-center justify-center text-emerald-600 text-4xl font-bold">SV</div>
+                        <h2 class="text-2xl font-bold mb-2">Nguyễn Văn A</h2>
+                        <p class="text-emerald-100 italic">Sinh viên thực hiện</p>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Phát triển Web</h4>
-                    <p class="text-slate-400">Xây dựng website chuẩn SEO, tương thích mọi thiết bị.</p>
-                </div>
-                <div class="p-8 rounded-2xl border border-white/5 bg-slate-800 hover:border-indigo-500/50 transition">
-                    <div class="w-12 h-12 bg-cyan-500/10 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
+                    <div class="md:w-2/3 p-12">
+                        <h1 class="text-4xl font-bold text-slate-900 mb-6">Chào mừng bạn đến với <span class="text-emerald-600">Sông Núi Việt Nam</span></h1>
+                        <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                            Chào bạn! Mình là một sinh viên có niềm đam mê mãnh liệt với du lịch bụi và khám phá vẻ đẹp kỳ vĩ của quê hương. Website này được mình thực hiện như một cuốn nhật ký hành trình nhỏ.
+                        </p>
+                        <div class="bg-emerald-50 p-6 rounded-2xl border-l-4 border-emerald-500">
+                            <h3 class="font-bold text-emerald-800 mb-2 underline">Mục đích của website:</h3>
+                            <p class="text-emerald-900">
+                                Mình muốn giới thiệu đến mọi người những địa danh tiêu biểu của Việt Nam - nơi có sự kết hợp hài hòa tuyệt vời giữa **Sông** và **Núi**. Đây là những nơi mang lại cảm giác bình yên, thư thái nhưng cũng không kém phần hùng vĩ. Hy vọng website sẽ là nguồn cảm hứng cho những chuyến đi sắp tới của bạn!
+                            </p>
+                        </div>
+                        <button onclick="showPage('trangan')" class="mt-8 px-8 py-3 bg-emerald-600 text-white rounded-full font-bold hover:bg-emerald-700 transition shadow-lg">Bắt đầu khám phá &rarr;</button>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">UI/UX Design</h4>
-                    <p class="text-slate-400">Thiết kế giao diện tinh tế, tập trung vào trải nghiệm người dùng.</p>
-                </div>
-                <div class="p-8 rounded-2xl border border-white/5 bg-slate-800 hover:border-indigo-500/50 transition">
-                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6">
-                        <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h4 class="text-xl font-bold mb-4">Tối ưu hiệu năng</h4>
-                    <p class="text-slate-400">Giúp website đạt điểm cao trên Google PageSpeed.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-24">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h3 class="text-3xl font-bold mb-12">Kỹ năng công nghệ</h3>
-            <div class="flex flex-wrap justify-center gap-4">
-                <span class="px-6 py-2 bg-slate-800 rounded-full border border-white/10 hover:border-indigo-400 transition">HTML5</span>
-                <span class="px-6 py-2 bg-slate-800 rounded-full border border-white/10 hover:border-indigo-400 transition">CSS3 / Tailwind</span>
-                <span class="px-6 py-2 bg-slate-800 rounded-full border border-white/10 hover:border-indigo-400 transition">JavaScript (ES6+)</span>
-                <span class="px-6 py-2 bg-slate-800 rounded-full border border-white/10 hover:border-indigo-400 transition">React.js</span>
-                <span class="px-6 py-2 bg-slate-800 rounded-full border border-white/10 hover:border-indigo-400 transition">Node.js</span>
-                <span class="px-6 py-2 bg-slate-800 rounded-full border border-white/10 hover:border-indigo-400 transition">Git / GitHub</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 bg-slate-800/30">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <div>
-                    <h3 class="text-3xl font-bold">Dự án <span class="text-indigo-400">Nổi Bật</span></h3>
-                    <p class="text-slate-400 mt-2">Những sản phẩm mình đã thực hiện gần đây.</p>
-                </div>
-                <a href="#" class="text-indigo-400 hover:underline mt-4 md:mt-0">Xem tất cả dự án &rarr;</a>
+        <!-- TEMPLATE CHO CÁC TRANG ĐỊA ĐIỂM -->
+        
+        <!-- TRANG 2: TRÀNG AN -->
+        <section id="trangan" class="page-section">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-emerald-800">Quần Thể Danh Thắng Tràng An</h2>
+                <p class="text-slate-500 italic mt-2">Ninh Bình - Di sản thế giới kép</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
-                <div class="group relative overflow-hidden rounded-2xl bg-slate-800 border border-white/10">
-                    <img src="https://via.placeholder.com/600x400" alt="Project" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold mb-2">E-Commerce Website</h4>
-                        <p class="text-slate-400 text-sm mb-4">Trang web bán hàng hiện đại với giỏ hàng và thanh toán trực tuyến.</p>
-                        <div class="flex space-x-2">
-                            <span class="text-xs bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded-full border border-indigo-500/20">React</span>
-                            <span class="text-xs bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded-full border border-indigo-500/20">Node.js</span>
-                        </div>
+                <!-- Sông -->
+                <div class="bg-sky-50 p-8 rounded-3xl border border-sky-100">
+                    <div class="flex items-center mb-4">
+                        <span class="p-3 bg-sky-500 rounded-xl text-white mr-4">🌊</span>
+                        <h3 class="text-2xl font-bold text-sky-900">Sông Sào Khê</h3>
                     </div>
+                    <ul class="space-y-4 text-slate-700">
+                        <li><strong>Vị trí:</strong> Chảy len lỏi qua các thung lũng đá vôi trong quần thể di sản.</li>
+                        <li><strong>Đặc điểm:</strong> Dòng nước trong xanh, tĩnh lặng như mặt gương, soi bóng núi non hùng vĩ.</li>
+                        <li><strong>Giá trị:</strong> Là tuyến đường thủy chính đưa du khách khám phá các hang động. Mang giá trị lịch sử quan trọng gắn liền với cố đô Hoa Lư.</li>
+                    </ul>
                 </div>
-                <!-- Project 2 -->
-                <div class="group relative overflow-hidden rounded-2xl bg-slate-800 border border-white/10">
-                    <img src="https://via.placeholder.com/600x400" alt="Project" class="w-full h-64 object-cover group-hover:scale-110 transition duration-500">
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold mb-2">Finance Dashboard</h4>
-                        <p class="text-slate-400 text-sm mb-4">Ứng dụng quản lý tài chính cá nhân với biểu đồ phân tích dữ liệu.</p>
-                        <div class="flex space-x-2">
-                            <span class="text-xs bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full border border-cyan-500/20">Tailwind</span>
-                            <span class="text-xs bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded-full border border-cyan-500/20">Chart.js</span>
-                        </div>
+                <!-- Núi -->
+                <div class="bg-emerald-50 p-8 rounded-3xl border border-emerald-100">
+                    <div class="flex items-center mb-4">
+                        <span class="p-3 bg-emerald-500 rounded-xl text-white mr-4">⛰️</span>
+                        <h3 class="text-2xl font-bold text-emerald-900">Dãy Núi Đá Vôi</h3>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24">
-        <div class="max-w-4xl mx-auto px-4 bg-indigo-600 rounded-3xl p-12 text-center text-white relative overflow-hidden">
-            <div class="relative z-10">
-                <h3 class="text-3xl md:text-4xl font-bold mb-6">Bắt đầu một dự án mới cùng nhau?</h3>
-                <p class="text-indigo-100 text-lg mb-8">Mình luôn sẵn sàng thảo luận về các dự án và ý tưởng sáng tạo.</p>
-                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
-                    <a href="mailto:email@example.com" class="px-8 py-3 bg-white text-indigo-600 rounded-xl font-bold shadow-xl hover:bg-slate-100 transition">Gửi Email cho mình</a>
-                    <span class="text-indigo-200">Hoặc</span>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-white hover:text-indigo-200 transition text-sm underline">LinkedIn</a>
-                        <a href="#" class="text-white hover:text-indigo-200 transition text-sm underline">GitHub</a>
-                    </div>
+                    <ul class="space-y-4 text-slate-700">
+                        <li><strong>Độ cao:</strong> Trung bình từ 150m - 200m so với mực nước biển.</li>
+                        <li><strong>Cảnh quan:</strong> Hệ thống núi đá vôi "Karst" hàng triệu năm tuổi với vách đá dựng đứng, rừng cây che phủ xanh ngắt.</li>
+                        <li><strong>Ý nghĩa:</strong> Được ví như "Hạ Long trên cạn", có ý nghĩa cực kỳ quan trọng về địa chất và đa dạng sinh học.</li>
+                    </ul>
                 </div>
             </div>
-            <!-- Decor circle -->
-            <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
-            <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-indigo-400/20 rounded-full blur-2xl"></div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-sm">
-        <p>&copy; 2024 Design by Tên Của Bạn. Built with Tailwind CSS.</p>
-    </footer>
+        <!-- TRANG 3: SA PA -->
+        <section id="sapa" class="page-section">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-emerald-800">Sa Pa - Thành Phố Trong Sương</h2>
+                <p class="text-slate-500 italic mt-2">Lào Cai - Vẻ đẹp vùng cao</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-sky-50 p-8 rounded-3xl border border-sky-100">
+                    <div class="flex items-center mb-4">
+                        <span class="p-3 bg-sky-500 rounded-xl text-white mr-4">🌊</span>
+                        <h3 class="text-2xl font-bold text-sky-900">Suối Mường Hoa</h3>
+                    </div>
+                    <ul class="space-y-4 text-slate-700">
+                        <li><strong>Vị trí:</strong> Chảy dọc theo thung lũng Mường Hoa, qua các xã Hầu Thào, Lao Chải...</li>
+                        <li><strong>Đặc điểm:<
 
-</body>
-</html>
